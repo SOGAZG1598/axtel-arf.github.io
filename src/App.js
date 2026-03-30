@@ -261,7 +261,7 @@ export default function PortalRequerimientos() {
       archivos_adjuntos: archivos.map(f=>f.name),
     };
   };
-
+/*
   const descargarJSON = datos => {
     const blob = new Blob([JSON.stringify(datos,null,2)],{type:"application/json"});
     const url  = URL.createObjectURL(blob);
@@ -270,7 +270,7 @@ export default function PortalRequerimientos() {
     a.href=url; a.download=`requerimiento_${tipo}_${ts}.json`; a.click();
     URL.revokeObjectURL(url);
   };
-
+*/
   const construirCorreo = datos => {
     const cfg    = REQUERIMIENTOS[tipo];
     const ahora  = new Date();
@@ -331,7 +331,7 @@ export default function PortalRequerimientos() {
     setErrores([]);
 
     const datos = construirDatos();
-    descargarJSON(datos);
+    //descargarJSON(datos);
 
     const { asunto, cuerpo } = construirCorreo(datos);
     window.location.href = `mailto:${CORREO_DESTINO}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
