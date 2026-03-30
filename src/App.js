@@ -20,7 +20,7 @@ import { useState } from "react";
 // son fijos para todos los tipos y se gestionan por separado.
 // ============================================================
 
-const CORREO_DESTINO = "soportecdc@axtel.com.mx";
+const CORREO_DESTINO = "soportecdc@alestra.com.mx";
 
 const T = {
   TEXTO:         "texto",
