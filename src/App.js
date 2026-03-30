@@ -231,24 +231,12 @@ export default function PortalRequerimientos() {
   const [archivos, setArchivos]         = useState([]);
   const [enviado, setEnviado]           = useState(false);
   const [errores, setErrores]           = useState([]);
-  const inputRef                        = useRef(null);
 
   const cambiarCampo = (id, val) => setValores(p=>({...p,[id]:val}));
 
   const seleccionarTipo = clave => {
     setTipo(clave); setValores({}); setEnviado(false); setErrores([]);
   };
-
-  const manejarArchivos = e => {
-    const nuevos = Array.from(e.target.files);
-    setArchivos(prev => {
-      const nombres = new Set(prev.map(f=>f.name));
-      return [...prev, ...nuevos.filter(f=>!nombres.has(f.name))];
-    });
-    e.target.value="";
-  };
-
-  const quitarArchivo = nombre => setArchivos(p=>p.filter(f=>f.name!==nombre));
 
   const validar = () => {
     if(!tipo) return ["Debes seleccionar un tipo de requerimiento."];
